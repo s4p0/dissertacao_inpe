@@ -1,0 +1,35 @@
+\chapter{O PROJETO FORESTWATCHERS}
+
+\label{forest_watchers}
+
+O projeto ForestWatchers (\url{http://www.forestwatchers.net}) propõe o desenvolvimento e o lançamento de uma iniciativa de ciência cidadã com o objetivo de envolver e integrar cidadãos ao redor do planeta na tarefa de monitorar o desmatamento das florestas tropicais \cite{ForestWatchersDesc}. Estes cidadãos poderão de suas casas, por meio de uma interface \textit{Web}, inspecionar imagens recentes de satélite de áreas de florestas. Estas podem ser de uma reserva indígena na Amazônia, uma floresta nacional em Bornéu ou um parque em Queensland. As imagens são então classificadas em áreas de floresta ou não-floresta, por meio de um algoritmo de classificação supervisionado pelos voluntários na \textit{Web}. Conforme mencionado por \citeonline{Ipeirotis2010}, erros e até mesmo fraude podem ser automaticamente tratados pela redundância do sistema. Para isso, é necessário atrair e manter um grande número de voluntários \cite{MarinalvaThesis2011}. Estima-se que cem mil voluntários analisando uma área de 100.000 hectares cada, com um fator de redundância de 20, podem examinar uma área de 500 milhões de hectares, cerca de 40 a 50\% da área estimada das florestas tropicais do mundo \cite{ForestWatchersDesc}.
+
+O projeto conta com desenvolvedores do Laboratório Associado de Computação e Matemática Aplicada (LAC) do INPE, do \textit{Citizen Cyberscience Centre} (CCC), e do Departamento de Ciência e Tecnologia (DCT) da Universidade Federal de São Paulo (UNIFESP), com apoio do \textit{Open Society Foundations} (OSF), \textit{United Nations Institute for Training and Research} (UNITAR), e \textit{UNITAR's Operational Satellite Application Programme} (UNOSAT).
+
+A seguir, será discutida a metodologia empregada no projeto.
+
+\section{METODOLOGIA}
+
+A metodologia usada neste projeto é inspirada no bem-sucedido programa de detecção de desflorestamento DETER do INPE. Assim, como no sistema DETER, o projeto ForestWatchers também utiliza imagens do sensor MODIS, com resolução de $250$ metros (porém qualquer outro sensor de satélite que forneça suas imagens gratuitamente pode ser utilizado). Para que essas imagens possam ser exibidas para os voluntários é necessário que um pré-processamento seja feito. 
+
+Um diagrama ilustrativo da metodologia utilizada pelo projeto ForestWatchers pode ser visto na Figura \ref{fig:estrutura_atual}.
+
+\begin{figure}[htb]
+
+\centering \resizebox{8.5cm}{!}{\includegraphics{figuras/arquitetura_atual.png}}
+
+\caption{A metodologia utilizada pelo projeto ForestWatchers.}
+
+\label{fig:estrutura_atual}
+
+\FONTE{\citeonline{ForestWatchersDesc}}
+
+\end{figure}
+
+Primeiramente é necessário adquirir as imagens da NASA referentes à área de interesse do projeto. Para esse processo, ferramentas como FTP\footnote{\textit{File Transfer Protocol (FTP)} é um protocolo para transferência de arquivo utilizado na Internet para efetuar \textit{downloads} e \textit{uploads} de arquivos.}e WGET\footnote{WGET é um programa livre para efetuar \textit{download} de conteúdos na Internet.} são utilizadas para realizar os downloads necessários. A próxima etapa, envolve recortar as imagens que não são pertinentes à área de interesse, descartando-as e consolidando as imagens restantes num único arquivo GeoTIFF de 16 bits. Essa etapa pode ser executada rapidamente com o auxílio da ferramenta MODIS Reprojection Tool (MRT) \cite{MRToolManual2010}, um software gratuito disponibilizado pela NASA.
+
+As imagens de 16 bits são convertidas para 8 bits por meio de um \textit{script} em Python\footnote{Python é uma linguagem de programação aberta.}. Logo após, uma única imagem é consolidada utilizando-se três bandas (infravermelho médio, vermelho, infravermelho próximo, equivalentes a vermelho, verde e azul) da imagem de 8 bits. Assim, essa imagem pode ser enviada para um servidor gerenciador de arquivos de mapa. Nesse projeto utiliza-se o MapServer (\url{http://www.mapserver.org}), responsável por tratar as requisições de inserção e seleção das imagens georreferenciadas, e de retornar apenas parte da imagem desejada na forma de \textit{tiles}. Todos os arquivos relacionados à imagem têm suas informações extraídas no formato GeoJSON\footnote{\textit{Geographic JavaScript Object Notation} é um formato para codificar variados tipos de estruturas geográficas.}, para facilitar a comunicação entre os outros módulos. O algoritmo de classificação (ainda em desenvolvimento) faz a segmentação das imagens, classificando-as como  áreas de floresta e de não-floresta. Existindo a necessidade de supervisão das imagens, serão criadas tarefas para os usuários poderem classificá-las visualmente.
+
+O \citeonline{PyBossa2013} é o sistema responsável por gerenciar a criação e distribuição das tarefas automaticamente, conforme necessário. Esse é um sistema livre que permite um usuário criar e gerenciar projetos que requeiram cognição humana, tais como classificação de imagem, transcrição e geo-codificação. Esse sistema é baseado no \citeonline{Boinc2008}, plataforma online desenvolvida para facilitar a criação e a operação de projetos baseados em ciência cidadã. Essa nova implementação traz maiores benefícios em relação ao sistema original, Bossa, por ser desenvolvida em Python e possuir uma API\footnote{\textit{Application Programming Interface} (API) é um protocolo com o objetivo de servir como interface para os componentes de softwares, permitindo comunicarem entre si.} RESTful \cite{Richardson2008}. 
+
+Com as tarefas criadas, os voluntários podem classificar as imagens de forma ordenada. O projeto, com o uso do sistema de redundância que envia a mesma tarefa para diferentes voluntários, garante um aumento na confiabilidade dos resultados \cite{Ipeirotis2010}.

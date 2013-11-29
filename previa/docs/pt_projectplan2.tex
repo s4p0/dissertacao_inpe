@@ -1,0 +1,67 @@
+\chapter{PLANO DE TRABALHO E CRONOGRAMA}
+
+\label{projectplan:intro}
+
+Esta dissertação tem como objetivo contribuir para a implementação do ForestWatchers (ver Capítulo \ref{forest_watchers}). Em seus objetivos, ela será responsável pelas seguintes etapas:
+
+\begin{enumerate}[i) ] %[label=\theenumi),noitemsep,nolistsep]
+
+\item Desenvolver o módulo de \textit{Volunteer Sensing} do projeto;
+
+\item Desenvolver a interface gráfica do novo módulo para o projeto;
+
+\item Integrar os módulos existentes junto a plataforma de ciência cidadã;
+
+\item Testar e validar todo o sistema utilizando dados PRODES e um conjunto de dados gerados por voluntários.
+
+\end{enumerate}
+
+\section{METODOLOGIA}
+
+A seguir, serão descritas as metodologias para cada etapa elencada acima.
+
+\subsection{MÓDULO DE SENSORIAMENTO VOLUNTÁRIO}
+
+O módulo de \textit{volunteer sensing} fornecerá um conjunto de dados coletados diretamente pelos voluntários, elevando a confiabilidade dos resultados. Os voluntários poderão enviar imagens de áreas de interesse, relatando desflorestamento ou não. Essas imagens ficarão armazenadas no servidor, aguardando para serem avaliadas pelos próprios voluntários, com emprego, se necessário, do mesmo nível de redundância utilizado para aumentar a confiabilidade das respostas dos usuários. A avaliação dessas imagens terá o objetivo de descobrir se são pertinentes ao projeto ou não. Essas imagens serão utilizadas para reduzir o número de falsos-positivos ou falsos-negativos.
+
+Para o desenvolvimento desse módulo (ver Figura \ref{fig:estrutura_modificada}), será necessário uma aplicação cliente que possibilite os voluntários enviar fotos georreferenciadas à plataforma do projeto. Essa aplicação cliente será desenvolvida baseada em \textit{frameworks} de \textit{volunteer sensing} disponíveis livremente. Caso os sistemas disponíveis não atendam às especificações do projeto, será desenvolvida uma nova aplicação cliente para um determinado tipo de dispositivo móvel, utilizando suas bibliotecas de desenvolvimento próprias. Neste caso, os aplicativos móveis podem ser desenvolvidos de três formas \cite{Korf2013}:
+
+\begin{enumerate}[1 -]   %[label=\arabic{enumi} -] %[label=\theenumi.\arabic*.] %[1 -]
+
+\item Desenvolvimento utilizando bibliotecas nativas dos dispositivos - Essa abordagem requer que um aplicativo seja desenvolvido para cada sistema operacional que se tem disponível, como exemplo, iOS\footnote{Sistema Operacional dos dispositivos móveis da fabricante Apple.}, Android\footnote{Sistema Operacional da empresa Google.}, Windows Phone\footnote{Sistema Operacional da Microsoft.}. Trata-se de uma abordagem custosa, pois há necessidade de adquirir licenças de desenvolvimento para todas essas plataformas, e de desenvolver cada aplicativo em sua própria linguagem de programação, uma vez que as bibliotecas nativas não são compatíveis entre si.
+
+\item Desenvolvimento em HTML5\footnote{HTML5 é uma linguagem de marcação estruturada para apresentar conteúdos da Internet.} - O HTML5 pode fornecer benefícios como portabilidade para diferentes dispositivos, não necessitando o desenvolvimento de um aplicativo para cada tipo de dispositivo. 
+
+Atualmente, não são todos os dispositivos no mercado que possuem navegadores HTML5, por ser esse ainda recente. Assim, algumas funcionalidades poderão não funcionar corretamente.
+
+\item Desenvolvimento utilizando bibliotecas de terceiros para atingir uma funcionalidade híbrida - Há bibliotecas que permitem codificar numa linguagem relativamente parecida com HTML5, possibilitando o reuso de código entre dispositivos diferentes.
+
+\end{enumerate}
+
+Esse sistema precisará ser desenvolvido visando eficiência na recepção dos dados enviados pelos voluntários e a utilização das mesmas tecnologias já utilizadas no projeto ForestWatchers para facilitar a sua integração.
+
+\begin{figure}[H]
+
+\centering \resizebox{8.5cm}{!}{\includegraphics{figuras/arquitetura_modificada.png}}
+
+\caption{Os voluntários terão a alternativa de enviar imagens para o servidor que serão utilizadas para aumentar a confiabilidade dos resultados.}
+
+\label{fig:estrutura_modificada}
+
+\end{figure}
+
+\subsection{INTERFACE GRÁFICA PARA O MÓDULO DE SENSORIAMENTO VOLUNTÁRIO}
+
+Para o desenvolvimento de uma aplicação cliente para o dispositivo e de um sistema de gerenciamento dos dados enviados é necessário definir uma interface gráfica acessível onde os voluntários e administradores do projeto possam visualizar e editar esses dados. Essa interface visual será na forma de uma página de Internet, para que todos os voluntários possam acessá-la de qualquer lugar do mundo.
+
+\subsection{INTEGRAÇÃO DOS MÓDULOS}
+
+A integração de todos os módulos permitirá que a replicação do sistema em outros servidores seja realizada de modo rápido e sem grandes esforços. Essa integração também possibilitará que o projeto ForestWatchers se torne escalável com apenas um mínimo de manutenção necessária para adicionar novas áreas de interesse, podendo futuramente cobrir diversas florestas em escala mundial.
+
+Em termos práticos, a integração se dará com o desenvolvimento de um novo módulo que gerenciará a transferência e o compartilhamento de informações e arquivos entre os módulos já existentes. Esta integração também garantirá o formalismo necessário para que níveis satisfatórios de qualidade de software no desenvolvimento do sistema sejam alcançados.
+
+\subsection{TESTES E VALIDAÇÃO}
+
+As etapas de testes e validação serão de extrema importância para o projeto ForestWatchers. Na fase de testes, a integração do sistema e a inclusão do novo módulo de \textit{volunteer sensing} serão avaliados. Testes unitários em cada módulo e um teste de integração para o sistema como um todo, serão conduzidos com o objetivo de garantir o resultado desejado \cite{Hutcheson2003}.
+
+Na etapa de validação será realizada uma comparação entre os resultados gerados com as respostas fornecidas pelos voluntários em comparação com os dados oficias emitidos pelo PRODES. Para este fim, uma nova área de interesse será selecionada e todo o processo de aquisição de imagens, geração de tarefas, apresentação das tarefas aos voluntários, obtenção das contribuições dos voluntários e disponibilização dos resultados para a comunidade serão validados.

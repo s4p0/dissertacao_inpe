@@ -13,6 +13,8 @@ Há dúvidas que projetos de ciência cidadã possam gerar resultados confiávei
 Os voluntários devem ter algum tipo de treinamento, para que os dados seja coletados conforme o previsto pelos cientistas, assim diretrizes devem ser definidas. Parte dessas diretrizes deve limitar o trabalho do voluntário, especificando um determinado foco de coleta, por exemplo. Esta especificação evita diversos ruídos nos dados, e ao comparar a coleta feita de voluntário com a de outro, os dados seguem a mesma semântica, facilitando a verificação de erros. Há relatos que projetos anteriores baseados em ciência cidadã, possuiam resultados variados por causa destes, ao invés de dados exatos. (Jeffrey P. Cohn) 
 Solicitar que os voluntários desempenhem trabalhos simples e não de natureza complexa auxilia na exatidão dos dados.
 
+// LAST
+
 Antes, sem internet, todas as atividades (coleta de amostras e compilação dos dados) eram centralizados nos cientistas responsáveis por um projeto. De uma forma ou de outra, era possível aplicar-se ciência cidadã como visto no projeto Christmas Bird Count, iniciado em 1900, e ainda em atividade, que foi possível catalogar mais de XXXX espécies através de XXXX voluntários (citar projeto, todos papers praticamente). 
 
 Porém, com a Internet, as informações são enviadas mais rápida para qualquer parte do mundo e de qualquer parte. Em cima deste conceito surgiu a "computação distribuída", ou computação voluntária (LIU et al., people power), através do projeto SETI@Home (referencia People Power). 

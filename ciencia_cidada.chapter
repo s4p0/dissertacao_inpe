@@ -11,8 +11,10 @@ Este laboratório conta com uma comunidade de aproximadamente 200 mil participan
 Há dúvidas que projetos de ciência cidadã possam gerar resultados confiáveis, uma vez que muitos dos voluntários engajados nas atividades científicas não possuem conhecimento nem mesmo familiarização com as ferramentas de coleta. Esta é uma questão muito pertinente e recorrente do meio. Há evidências (Silvertown e Jeffrey P. Cohn) que estes dados produzidos por cidadãos comuns possam sim ser confiáveis. Para isto é necessário que algumas medidas sejam seguidas.
 
 Os voluntários devem ter algum tipo de treinamento, para que os dados seja coletados conforme o previsto pelos cientistas, assim diretrizes devem ser definidas. Parte dessas diretrizes deve limitar o trabalho do voluntário, especificando um determinado foco de coleta, por exemplo. Esta especificação evita diversos ruídos nos dados, e ao comparar a coleta feita de voluntário com a de outro, os dados seguem a mesma semântica, facilitando a verificação de erros. Há relatos que projetos anteriores baseados em ciência cidadã, possuiam resultados variados por causa destes, ao invés de dados exatos. (Jeffrey P. Cohn) 
-Solicitar que os voluntários desempenhem trabalhos simples e não de natureza complexa auxilia na exatidão dos dados.
+Solicitar que os voluntários desempenhem trabalhos simples auxilia na exatidão dos dados. 
+// descartar ou não paragrafo acima?
 
+// nova entrada sobre o mesmo assunto? (considerando Sheppard
 // LAST
 
 Antes, sem internet, todas as atividades (coleta de amostras e compilação dos dados) eram centralizados nos cientistas responsáveis por um projeto. De uma forma ou de outra, era possível aplicar-se ciência cidadã como visto no projeto Christmas Bird Count, iniciado em 1900, e ainda em atividade, que foi possível catalogar mais de XXXX espécies através de XXXX voluntários (citar projeto, todos papers praticamente). 
@@ -31,3 +33,32 @@ Em um trabalho recentemente, (Liu et al.) culminou o termo sensoriamento volunt�
 
 Este novo paradigma evita que voluntários possam intencionalmente informar dados errados, por exemplo a localização de uma certa amostra, utilizando os sensores do dispositivo móvel corretamente. Diversos projetos atuais necessitam desta precisão da localidade de onde a amostra foi retirada para compilar seus dados corretamente. (citar alguns projetos como NOAH e NoiseTube)
 
+== verificar os projetos e reclassificá-los, dando uma breve descrição.
+
+- SETI@Home
+- Rosetta@Home
+- Foldit
+- ClimatePrediction.net 
+- eBird (Cornell)
+- Celebrate urban Birds (Cornell)
+- Project FeederWatch (Cornell)
+- NestWatch (Cornell)
+- CamClickr (Conrell)
+- Great Backyard Bird Count (Cornell)
+- Birds in Forested Landscapes (Cornell)
+- Project PigeonWatch (Cornell)
+- House Finch Disease Survey (Cornell)
+- BirdSleuth (Cornell)
++++- www.cornellcitizenscience.org
+- Christmas Bird Count (case of studies Silvertown)
+- The Evolution MegaLab  (case of studies Silvertown)
+- OPAL (OPen Air Laboratories) (case of studies Silvertown)
+- GalaxyZoo
+- SnapshotSerengeti
+- Project Noah
+- Noise Tube
+
+-- Relação de projetos (depois reorganizar....)
+	++Computação Voluntária
+	++Pensamento Voluntário
+	++Sensoriamento Voluntário

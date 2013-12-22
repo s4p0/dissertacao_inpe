@@ -74,3 +74,33 @@ How is quality defined?
 - reliability
 - accuracy
 - consistency
+	-- summary
+	
+How quality is maintained?
+- Potential Sources of error
+- Identifying Errors
+- Recoverying From erros
+How is Quality Balanced?
+- Impact of Data Quality on Education
+- Impact of Eduaction on Data Quality
+
+
+=====
+
+
+=====
+BOINC - Anderson
+=====
+- The world's computing power and disk space is no longer primarily concentrated in supercomputer centers and machine rooms. Instead it is distributed in hundreds of millions of personal computers belonging to the general public. Public-resource computing. "Global Computing" or "Peer-to-peer computing" and "distributed computing"
+- This paradigm enables previously infeasible research.
+- public-resource computing emerged in the mid-1990s with two projects GIMPS and Distributed.net
+- 1999 launched SETI@home, which attracted millions of participants worldwide. Processing over 70TeraFLOPS ( in contrast, the supercomputer, NEC EarthSimulator, 35 TeraFLOPs)
+
+=====
+SETI @ home wich - Anderson
+=====
+- public response
+	In 1998, preregister 400.000 ppl
+	After a client release, in a week, it was downloaded 200.000 times
+	As August 2002, it was 3.91 million downloads
+	
